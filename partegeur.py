@@ -533,6 +533,13 @@ def join_group():
 def on_join(data):
     join_room(data.get('userId'))
 
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+    return response
+
 if __name__ == '__main__':
     print("\n🔴 PARTEGEUR by REDrock")
     print("━━━━━━━━━━━━━━━━━━━━━━━")
