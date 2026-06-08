@@ -4,7 +4,7 @@ import uuid, time, threading
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'partegeur-redrock-secret'
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
 
 # In-memory storage
 users = {}
