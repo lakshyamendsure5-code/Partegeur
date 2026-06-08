@@ -3,5 +3,6 @@ services:
     name: partegeur
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn --worker-class sync -w 1 --timeout 120 partegeur:app
+    startCommand: gunicorn --worker-class gthread --workers 1 --threads 4 --timeout 120 partegeur:app
     plan: free
+    
